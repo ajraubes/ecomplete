@@ -20,6 +20,8 @@ services:
   nginx:
     build:
       context: ./nginx
+    volumes:
+      - ./web:/var/www/html
     ports:
       - "8081:80"
     depends_on:
