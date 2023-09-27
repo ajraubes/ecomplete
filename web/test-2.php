@@ -6,6 +6,7 @@
 </head>
 <body>
     <header>
+        <?php include 'header.php'; ?>
         <h1>CSV Generation and Import</h1>
     </header>
 

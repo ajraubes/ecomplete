@@ -4,12 +4,12 @@
     <title>Index Page</title>
 </head>
 <body>
-    <h1>Welcome to the Index Page</h1>
-    <p>HTML page with links to two other pages:</p>
+    <header>
+        <?php include 'header.php'; ?>
+        <h1>Data Entry Form</h1>
+    </header>
 
-    <ul>
-        <li><a href="test-1.php">Go to Page 1</a></li>
-        <li><a href="test-2.php">Go to Page 2</a></li>
-    </ul>
+    <h1>Welcome to the Index Page</h1>
+
 </body>
 </html>

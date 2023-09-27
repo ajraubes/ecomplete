@@ -2,10 +2,10 @@
 <html>
 <head>
     <title>Page 1</title>
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
     <header>
+        <?php include 'header.php'; ?>
         <h1>Data Entry Form</h1>
     </header>
 
