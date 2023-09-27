@@ -44,7 +44,7 @@
                 };
                 xhr.send();
             }
-            // Check the progress every 3 seconds (adjust this as needed)
+            
             setInterval(checkProgress, 3000);
         </script>
     </div>
