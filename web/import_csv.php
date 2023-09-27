@@ -1,4 +1,5 @@
 <?php include 'header.php'; ?>
+
 <?php
 if (isset($_POST['import'])) {
     // Generate a unique timestamp
@@ -21,7 +22,7 @@ if (isset($_POST['import'])) {
         while (($row = fgetcsv($csvFile)) !== false) {
             if ($firstRow) {
                 $firstRow = false;
-                continue; 
+                continue;
             }
 
             // Insert data into SQLite table
@@ -36,6 +37,12 @@ if (isset($_POST['import'])) {
             $stmt->execute();
 
             $importedCount++;
+
+            // Display the progress every 1000 records
+            if ($importedCount % 1000 == 0) {
+                echo "Importing record $importedCount | ";
+                flush();
+            }
         }
 
         fclose($csvFile);
@@ -44,6 +51,6 @@ if (isset($_POST['import'])) {
         echo "Error uploading the CSV file.";
     }
 }
-
 ?>
+
 <?php include 'footer.php'; ?>

@@ -57,22 +57,26 @@ if (isset($_POST['generate'])) {
         ];
 
         $generatedRecords = [];
+        $uniqueCombinations = [];
+
         $batchSize = 1000;
         $progress = 0;
         $headerWritten = false;
 
         for ($i = 1; $i <= $recordCount; $i++) {
-            $name = $names[array_rand($names)];
-            $surname = $surnames[array_rand($surnames)];
+            do {
+                $name = $names[array_rand($names)];
+                $surname = $surnames[array_rand($surnames)];
+                $age = rand(18, 99);
+                $dob = date('d/m/Y', strtotime("-" . $age . " years"));
+                $combination = $name . ',' . $surname . ',' . $age . ',' . $dob;
+            } while (isset($uniqueCombinations[$combination]));
+
+            $uniqueCombinations[$combination] = true;
+
             $initials = substr($name, 0, 1);
-            $age = rand(18, 99);
-            $dob = date('d/m/Y', strtotime("-" . $age . " years"));
 
             $record = [$i, $name, $surname, $initials, $age, $dob];
-
-            if (!in_array($record, $generatedRecords, true)) {
-                $generatedRecords[] = $record;
-            }
 
             // Update progress
             $progress = ($i / $recordCount) * 100;
@@ -80,7 +84,7 @@ if (isset($_POST['generate'])) {
             // Write progress to a text file
             file_put_contents('output/progress.txt', $progress . '%');
 
-            // Write the batch and sleep for 5 seconds after each batch
+            // Write the batch and sleep for 2 seconds after each batch
             if ($i % $batchSize === 0) {
                 $csvFile = fopen($outputFilePath, 'a');
 
@@ -95,9 +99,11 @@ if (isset($_POST['generate'])) {
                 fclose($csvFile);
                 $generatedRecords = [];
 
-                // Sleep for 5 seconds
-                sleep(5);
+                // Sleep
+                // sleep(2);
             }
+
+            $generatedRecords[] = $record;
         }
 
         // Write any remaining records in the batch
@@ -115,6 +121,5 @@ if (isset($_POST['generate'])) {
         echo "Invalid record count.";
     }
 }
-
 ?>
 <?php include 'footer.php'; ?>
