@@ -9,13 +9,28 @@ services:
     networks:
       - my_network
 
+  mongodb:
+    build:
+      context: ./mongodb
+    ports:
+      - "27017:27017"
+    networks:
+      - my_network
+
   nginx:
     build:
       context: ./nginx
     ports:
-      - "80:80"
+      - "8081:80"
     depends_on:
       - php
+    networks:
+      - my_network
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
     networks:
       - my_network
 

@@ -1,7 +1,11 @@
 <?php
 if (isset($_POST['import'])) {
-    // Connect to SQLite database
-    $db = new SQLite3('your_database.db');
+    // Generate a unique timestamp
+    $timestamp = date("YmdHis");
+
+    // Create a new database file with a timestamp in the name
+    $dbFileName = 'user_data_import_' . $timestamp . '.db';
+    $db = new SQLite3($dbFileName);
 
     // Create a table for CSV data
     $db->exec("CREATE TABLE IF NOT EXISTS csv_import (Id INTEGER, Name TEXT, Surname TEXT, Initials TEXT, Age INTEGER, DateOfBirth TEXT)");
@@ -16,7 +20,7 @@ if (isset($_POST['import'])) {
         while (($row = fgetcsv($csvFile)) !== false) {
             if ($firstRow) {
                 $firstRow = false;
-                continue; // Skip headers
+                continue; 
             }
 
             // Insert data into SQLite table
@@ -34,9 +38,10 @@ if (isset($_POST['import'])) {
         }
 
         fclose($csvFile);
-        echo "Imported $importedCount records into the SQLite database.";
+        echo "Imported $importedCount records into the SQLite database ($dbFileName).";
     } else {
         echo "Error uploading the CSV file.";
     }
 }
+
 ?>

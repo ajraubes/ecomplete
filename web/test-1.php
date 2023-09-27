@@ -10,7 +10,7 @@
     </header>
 
     <div class="container">
-        <form action="process_form.php" method="post">
+        <form action="process_form_test_1.php" method="post">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
 

@@ -1,17 +1,17 @@
 <?php
 if (isset($_POST['submit'])) {
-    // Validate input fields
-    $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
-    $surname = filter_input(INPUT_POST, 'surname', FILTER_SANITIZE_STRING);
-    $idNumber = filter_input(INPUT_POST, 'idNumber', FILTER_VALIDATE_INT);
-    $dob = filter_input(INPUT_POST, 'dob', FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/\d{8}/")));
+    // Custom input validation and sanitation
+    $name = isset($_POST['name']) ? strip_tags(trim($_POST['name'])) : null;
+    $surname = isset($_POST['surname']) ? strip_tags(trim($_POST['surname'])) : null;
+    $idNumber = isset($_POST['idNumber']) ? (int)$_POST['idNumber'] : null;
+    $dob = isset($_POST['dob']) ? $_POST['dob'] : null;
 
-    if (!$name || !$surname || !$idNumber || !$dob) {
+    if (empty($name) || empty($surname) || !$idNumber || !preg_match("/\d{8}/", $dob)) {
         // Validation failed
         echo "Validation error. Please check your inputs.";
     } else {
         // Connection to MongoDB
-        $mongoClient = new MongoDB\Driver\Manager("mongodb://mongodb_host:27017");
+        $mongoClient = new MongoDB\Driver\Manager("mongodb://mongodb:27017");
         $databaseName = "user_data";
         $collectionName = "user_records";
         $collection = $databaseName . "." . $collectionName;
