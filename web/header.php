@@ -26,10 +26,10 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="test-1.php">Page 1</a>
+            <a class="nav-link" href="test-1.php">Test 1</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="test-2.php">Page 2</a>
+            <a class="nav-link" href="test-2.php">Test 2</a>
           </li>
         </ul>
       </div>
