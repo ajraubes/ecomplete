@@ -6,7 +6,7 @@ if (isset($_POST['import'])) {
     $timestamp = date("YmdHis");
 
     // Create a new database file with a timestamp in the name
-    $dbFileName = 'user_data_import_' . $timestamp . '.db';
+    $dbFileName = 'user_data_import_' . $timestamp . '.sqlite';
     $db = new SQLite3($dbFileName);
 
     // Create a table for CSV data
@@ -38,6 +38,8 @@ if (isset($_POST['import'])) {
 
             $importedCount++;
 
+
+            //TODO add total import
             // Display the progress every 1000 records
             if ($importedCount % 1000 == 0) {
                 echo "Importing record $importedCount | ";

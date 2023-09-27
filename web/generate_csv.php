@@ -11,6 +11,9 @@ if (isset($_POST['generate'])) {
         $timestamp = date('Y-m-d_H-i-s');
         $outputFilePath = 'output/output_' . $timestamp . '.csv';
 
+        //TODO ADD ID 
+        //TODO add file delete and create new same name 
+
         $names = [
             "John",
             "Alice",
