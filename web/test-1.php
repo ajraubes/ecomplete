@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Page 1</title>
-</head>
-<body>
-    <header>
-        <?php include 'header.php'; ?>
-        <h1>Data Entry Form</h1>
-    </header>
-
+<?php include 'header.php'; ?>
+    <h1>Data Entry Form</h1>
     <div class="container">
         <form action="process_form_test_1.php" method="post">
             <label for="name">Name:</label>
@@ -27,5 +18,4 @@
             <button type="reset">Cancel</button>
         </form>
     </div>
-</body>
-</html>
+<?php include 'footer.php'; ?>

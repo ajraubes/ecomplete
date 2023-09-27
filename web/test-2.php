@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Page 2</title>
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-</head>
-<body>
-    <header>
-        <?php include 'header.php'; ?>
-        <h1>CSV Generation and Import</h1>
-    </header>
 
+<?php include 'header.php'; ?>
+    <h1>CSV Generation and Import</h1>
     <div class="container">
         <!-- Form for generating CSV -->
         <form action="generate_csv.php" method="post">
@@ -49,5 +40,4 @@
             setInterval(checkProgress, 3000);
         </script>
     </div>
-</body>
-</html>
+<?php include 'footer.php'; ?>

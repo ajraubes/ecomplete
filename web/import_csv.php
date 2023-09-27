@@ -1,3 +1,4 @@
+<?php include 'header.php'; ?>
 <?php
 if (isset($_POST['import'])) {
     // Generate a unique timestamp
@@ -45,3 +46,4 @@ if (isset($_POST['import'])) {
 }
 
 ?>
+<?php include 'footer.php'; ?>

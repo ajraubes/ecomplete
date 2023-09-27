@@ -1,3 +1,4 @@
+<?php include 'header.php'; ?>
 <?php
 if (isset($_POST['submit'])) {
     // Custom input validation and sanitation
@@ -44,3 +45,4 @@ if (isset($_POST['submit'])) {
     echo "Form not submitted.";
 }
 ?>
+<?php include 'footer.php'; ?>

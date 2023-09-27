@@ -1,3 +1,4 @@
+<?php include 'header.php'; ?>
 <?php
 set_time_limit(100200);
 ini_set('memory_limit', '2048M');
@@ -116,3 +117,4 @@ if (isset($_POST['generate'])) {
 }
 
 ?>
+<?php include 'footer.php'; ?>
