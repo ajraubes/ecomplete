@@ -2,6 +2,7 @@
 <h1 class="text-center">CSV Generation and Import</h1>
 <div class="container">
     <!-- Form for generating CSV -->
+    <h2>Generate CSV</h2>
     <form action="generate_csv.php" method="post">
         <div class="form-group">
             <label for="recordCount">Enter the number of records to generate:</label>
@@ -14,6 +15,7 @@
     <div id="progress" class="mt-3">Progress: 0%</div>
     <hr />
     <!-- Form for importing CSV into SQLite -->
+    <h2>Import CSV</h2>
     <form action="import_csv.php" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="csvFile">Choose a CSV file to import:</label>
