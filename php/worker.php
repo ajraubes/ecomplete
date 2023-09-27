@@ -1,11 +1,10 @@
 <?php
 $redis = new Redis();
 
-// Replace the connection details with your Redis server information
-$redis->connect('redis', 6379); // Use the service name from docker-compose.yml
+$redis->connect('redis', 6379);
 
 while (true) {
-    $task = $redis->lpop('background_task_queue'); // Dequeue a task
+    $task = $redis->lpop('background_task_queue');
 
     if ($task) {
         // Process the task (e.g., generate CSV)
