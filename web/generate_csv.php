@@ -11,9 +11,6 @@ if (isset($_POST['generate'])) {
         $timestamp = date('Y-m-d_H-i-s');
         $outputFilePath = 'output/output_' . $timestamp . '.csv';
 
-        //TODO ADD ID 
-        //TODO add file delete and create new same name 
-
         $names = [
             "John",
             "Alice",
@@ -72,8 +69,8 @@ if (isset($_POST['generate'])) {
                 $surname = $surnames[array_rand($surnames)];
                 $age = rand(18, 99);
                 $dob = date('d/m/Y', strtotime("-" . $age . " years"));
-                $combination = $name . ',' . $surname . ',' . $age . ',' . $dob;
-            } while (isset($uniqueCombinations[$combination]));
+                $combination = $name . ',' . $surname . ',' . $dob;
+            } while (isset($uniqueCombinations[$combination]));            
 
             $uniqueCombinations[$combination] = true;
 
