@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="web/styles.css">
-        <title>eComplete Generate CSV</title>
-    </head>
-    <body class="antialiased">
-        <div class="main-block">
-        <h1>eComplete Generate CSV</h1>
+<?php include 'header.php'; ?>
+    <div class="main-block">
+    <h1>eComplete Generate CSV</h1>
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
@@ -23,5 +15,4 @@
             </div>
         </div>
     </div>
-    </body>
-</html>
+<?php include 'footer.php'; ?>

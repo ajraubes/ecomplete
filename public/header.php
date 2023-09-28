@@ -7,6 +7,7 @@
   <meta name="HandheldFriendly" content="true">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="web/styles.css">
+  <link rel="javascript" type="text/javascript" href="web/scripts.js">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
